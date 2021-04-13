@@ -1,14 +1,13 @@
-import finalhandler from 'finalhandler'
-import serveStatic from 'serve-static'
-import WebSocket from 'faye-websocket'
-import serveIndex from 'serve-index'
-import chokidar from 'chokidar'
-import parseurl from 'parseurl'
-import colors from 'colors'
-import http from 'http'
-import fs from 'fs'
-import _path from 'path'
-const path = _path.posix
+const finalhandler = require('finalhandler')
+const serveStatic = require('serve-static')
+const WebSocket = require('faye-websocket')
+const serveIndex = require('serve-index')
+const chokidar = require('chokidar')
+const parseurl = require('parseurl')
+const http = require('http')
+const path = require('path').posix
+const fs = require('fs')
+require('colors')
 
 let SliveServer = {
   server: null,
@@ -89,4 +88,4 @@ SliveServer.shutdown = function () {
   server && server.close()
 }
 
-export default SliveServer
+module.exports = SliveServer
