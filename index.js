@@ -18,13 +18,13 @@ let clients = []
 SliveServer.start = function (config = {}) {
   const host = config.host || '0.0.0.0'
   const port = config.port || 3000
-  const root = config.root ? path.join(process.cwd(), config.root) : process.cwd()
+  const root = config.root ? path.join(process.cwd(), config.root).replace(/\\/g, '/') : process.cwd().replace(/\\/g, '/')
   const wait = config.wait || 100
   const watch = config.watch || [root]
-  const verbose = config.verbose === undefined ? true : config.verbose
+  const verbose = config.verbose === undefined || config.verbose === null ? true : config.verbose
 
   const index = serveIndex(root, { 'icons': true })
-  const serve = serveStatic(root)
+  const serve = serveStatic(root, { index: false })
 
   const server = http.createServer(function onRequest(req, res) {
     const done = finalhandler(req, res)
@@ -72,7 +72,7 @@ SliveServer.start = function (config = {}) {
   SliveServer.watcher = chokidar.watch(watch, { ignoreInitial: true })
   SliveServer.watcher.on('all', (event, file) => {
     setTimeout(() => {
-      verbose && console.log('Change detected'.cyan, file.yellow)
+      verbose && console.log('Change detected'.cyan, file.replace(/\\/g, '/').yellow)
       SliveServer.reload()
     }, wait)
   })

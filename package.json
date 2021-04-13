@@ -1,7 +1,8 @@
 {
   "name": "slive-server",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "index.js",
+  "bin": "cli.js",
   "repository": "https://github.com/erwinheldy/slive-server.git",
   "author": "Erwin Heldy G <erwin.developer@gmail.com>",
   "license": "MIT",
