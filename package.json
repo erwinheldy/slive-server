@@ -1,0 +1,18 @@
+{
+  "name": "slive-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/erwinheldy/slive-server.git",
+  "author": "Erwin Heldy G <erwin.developer@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "chokidar": "^3.5.1",
+    "colors": "^1.4.0",
+    "faye-websocket": "^0.11.3",
+    "finalhandler": "^1.1.2",
+    "parseurl": "^1.3.3",
+    "serve-index": "^1.9.1",
+    "serve-static": "^1.14.1"
+  }
+}
