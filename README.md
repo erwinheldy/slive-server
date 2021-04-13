@@ -26,3 +26,9 @@ const config = {
 
 SliveServer.start(config)
 ```
+
+## Methods
+```javascript
+SliveServer.reload() // Reload manually
+SliveServer.shutdown() // Stop server
+```
