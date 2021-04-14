@@ -10,7 +10,7 @@ class server {
       port: this.argv('port') ? parseInt(this.argv('port')) : null,
       root: this.argv('root'),
       wait: this.argv('wait') ? parseInt(this.argv('wait')) : null,
-      watch: this.argv('watch').includes(',') ? this.argv('watch').split(',') : this.argv('watch'),
+      watch: this.argv('watch') ? this.argv('watch').includes(',') ? this.argv('watch').split(',') : this.argv('watch') : null,
       verbose: this.argv('quiet') ? false : true,
     }
   }
