@@ -28,8 +28,9 @@ SliveServer.start = function (config = {}) {
 
   const server = http.createServer(function onRequest(req, res) {
     const done = finalhandler(req, res)
-    if (req.url.endsWith('.html')) {
-      let content = fs.readFileSync(path.join(root, parseurl(req).pathname), 'utf-8')
+    const filePath = path.join(root, parseurl(req).pathname)
+    if (req.url.endsWith('.html') && fs.existsSync(filePath)) {
+      let content = fs.readFileSync(filePath, 'utf-8')
       // Inject WebSocket for livereload
       content = content.replace('</body>', `  <script>new WebSocket('ws://' + window.location.host).onmessage=o=>{'reload'==o.data&&window.location.reload()}</script>\n</body>`)
       res.writeHeader(200, { 'Content-Type': 'text/html' })

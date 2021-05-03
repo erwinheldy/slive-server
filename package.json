@@ -1,6 +1,13 @@
 {
   "name": "slive-server",
-  "version": "1.0.3",
+  "version": "1.0.4",
+  "description": "Simple http server with live reload capability",
+  "keywords": [
+    "live",
+    "server",
+    "live reload",
+    "auto refresh"
+  ],
   "main": "index.js",
   "bin": "cli.js",
   "repository": "https://github.com/erwinheldy/slive-server.git",
